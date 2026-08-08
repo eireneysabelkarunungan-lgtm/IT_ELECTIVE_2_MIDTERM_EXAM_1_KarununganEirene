@@ -1,4 +1,6 @@
 # eireneysabelkarunungan-lgtm-IT_ELECTIVE_2_MIDTERM_EXAM_1_KarununganEirene
+Note: I had issues with pushing the first project I did to the first repository I created. I cannot figure out how to solve it, so I just created a new project and repository, and added my current files to the project. 
+
 # Vehicle Service Monitoring System
 
 An ASP.NET Core MVC (.NET 8) lab exercise solution. Service advisors register,
