@@ -1,0 +1,83 @@
+@model ServiceJobDetailsDto
+@{
+    ViewData["Title"] = "Service Job Details";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="mb-0">Service Job Details</h3>
+    <span class="@StatusBadgeHelper.CssClass(Model.Status) fs-6">@StatusBadgeHelper.DisplayName(Model.Status)</span>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body p-4">
+        <h5 class="text-muted">Service Number</h5>
+        <p class="fs-4 fw-bold">@Model.ServiceNumber</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="text-muted mt-3">Customer</h6>
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Name</dt>
+                    <dd class="col-sm-7">@Model.CustomerName</dd>
+                    <dt class="col-sm-5">Contact Number</dt>
+                    <dd class="col-sm-7">@Model.ContactNumber</dd>
+                </dl>
+            </div>
+            <div class="col-md-6">
+                <h6 class="text-muted mt-3">Vehicle</h6>
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Make / Model</dt>
+                    <dd class="col-sm-7">@Model.ModelYear @Model.VehicleMake @Model.VehicleModel</dd>
+                    <dt class="col-sm-5">Plate Number</dt>
+                    <dd class="col-sm-7">@Model.PlateNumber</dd>
+                    <dt class="col-sm-5">Color</dt>
+                    <dd class="col-sm-7">@Model.VehicleColor</dd>
+                </dl>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="text-muted">Service</h6>
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Service Type</dt>
+                    <dd class="col-sm-7">@Model.ServiceType</dd>
+                    <dt class="col-sm-5">Service Bay</dt>
+                    <dd class="col-sm-7">@Model.ServiceBay</dd>
+                </dl>
+            </div>
+            <div class="col-md-6">
+                <h6 class="text-muted">Timeline</h6>
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Check-in</dt>
+                    <dd class="col-sm-7">@Model.CheckInDateTime.ToString("MM/dd/yyyy h:mm tt")</dd>
+                    <dt class="col-sm-5">Expected Release</dt>
+                    <dd class="col-sm-7">@Model.ExpectedReleaseDate.ToString("MM/dd/yyyy h:mm tt")</dd>
+                    <dt class="col-sm-5">Actual Release</dt>
+                    <dd class="col-sm-7">
+                        @(Model.ActualReleaseDateTime.HasValue
+                            ? Model.ActualReleaseDateTime.Value.ToString("MM/dd/yyyy h:mm tt")
+                            : "Not yet released")
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.Remarks))
+        {
+            <hr />
+            <h6 class="text-muted">Remarks</h6>
+            <p class="mb-0">@Model.Remarks</p>
+        }
+
+        <hr />
+        <a asp-controller="ServiceJob" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        @if (Model.Status != ServiceStatus.Released)
+        {
+            <a asp-controller="ServiceJob" asp-action="Release" asp-route-id="@Model.Id" class="btn btn-success">Release Vehicle</a>
+        }
+        <a asp-controller="ServiceJob" asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+    </div>
+</div>

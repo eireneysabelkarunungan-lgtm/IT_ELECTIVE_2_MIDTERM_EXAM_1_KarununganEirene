@@ -1,31 +1,38 @@
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
+  font-size: 15px;
   position: relative;
   min-height: 100%;
 }
 
 body {
   margin-bottom: 60px;
+  background-color: #f5f6f8;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 50px;
+  background-color: #fff;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.card-header-title {
+  font-weight: 600;
+}
+
+.badge-status-waiting { background-color: #6c757d; }
+.badge-status-inservice { background-color: #0d6efd; }
+.badge-status-ready { background-color: #fd7e14; }
+.badge-status-released { background-color: #198754; }
+
+.table-responsive {
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.auth-card {
+  max-width: 480px;
+  margin: 2rem auto;
 }
