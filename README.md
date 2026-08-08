@@ -37,6 +37,6 @@ protected and can only be accessed by logged-in users.
 * **1. Download ZIP:** In the GitHub repo, click "Code" and choose **"Download ZIP"**.
 * **2. Extract All:** Select the downloaded .zip file and extract.
 * **3. Find file location:** Open the folder then open **VehileServiceMonitoringSystem**.
-* **4. Open POSApp:** Find **VehileServiceMonitoringSystem.slnx** and open with Visual Studio.
+* **4. Open the System:** Find **VehileServiceMonitoringSystem.slnx** and open with Visual Studio.
 * **5. Run:** Click **Run (http)** in Visual studio or press **F5**.
 * **6. Open in web:** If the localhost doesn't open automatically, take note of the localhost port in the console and open it in your preferred browser.
