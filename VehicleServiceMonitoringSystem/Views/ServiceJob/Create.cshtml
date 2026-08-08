@@ -1,0 +1,101 @@
+@model ServiceJobCreateDto
+@{
+    ViewData["Title"] = "Register Vehicle";
+}
+
+<div class="mb-4">
+    <div class="page-kicker">VeHI-cle &middot; Check-in</div>
+    <h3 class="page-heading mb-0">Register Vehicle</h3>
+</div>
+
+<div class="card">
+    <div class="card-body p-4">
+        <form asp-controller="ServiceJob" asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <h5 class="text-muted">Customer Information</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CustomerName" class="form-label"></label>
+                    <input asp-for="CustomerName" class="form-control" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ContactNumber" class="form-label"></label>
+                    <input asp-for="ContactNumber" class="form-control" placeholder="e.g. 09171234567" />
+                    <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <h5 class="text-muted mt-3">Vehicle Information</h5>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="VehicleMake" class="form-label"></label>
+                    <input asp-for="VehicleMake" class="form-control" />
+                    <span asp-validation-for="VehicleMake" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="VehicleModel" class="form-label"></label>
+                    <input asp-for="VehicleModel" class="form-control" />
+                    <span asp-validation-for="VehicleModel" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="ModelYear" class="form-label"></label>
+                    <input asp-for="ModelYear" class="form-control" />
+                    <span asp-validation-for="ModelYear" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PlateNumber" class="form-label"></label>
+                    <input asp-for="PlateNumber" class="form-control text-uppercase" />
+                    <span asp-validation-for="PlateNumber" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="VehicleColor" class="form-label"></label>
+                    <input asp-for="VehicleColor" class="form-control" />
+                    <span asp-validation-for="VehicleColor" class="text-danger"></span>
+                </div>
+            </div>
+
+            <h5 class="text-muted mt-3">Service Information</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ServiceType" class="form-label"></label>
+                    <input asp-for="ServiceType" class="form-control" placeholder="e.g. Oil Change, Brake Repair" />
+                    <span asp-validation-for="ServiceType" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ServiceBay" class="form-label"></label>
+                    <input asp-for="ServiceBay" class="form-control" placeholder="e.g. Bay 1" />
+                    <span asp-validation-for="ServiceBay" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CheckInDateTime" class="form-label"></label>
+                    <input asp-for="CheckInDateTime" class="form-control" />
+                    <span asp-validation-for="CheckInDateTime" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ExpectedReleaseDate" class="form-label"></label>
+                    <input asp-for="ExpectedReleaseDate" class="form-control" />
+                    <span asp-validation-for="ExpectedReleaseDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Remarks" class="form-label"></label>
+                <textarea asp-for="Remarks" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register Vehicle</button>
+            <a asp-controller="ServiceJob" asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
