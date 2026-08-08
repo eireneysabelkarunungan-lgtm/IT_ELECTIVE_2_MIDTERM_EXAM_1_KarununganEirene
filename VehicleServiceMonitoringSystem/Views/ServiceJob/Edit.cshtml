@@ -3,9 +3,12 @@
     ViewData["Title"] = "Edit Service Job";
 }
 
-<h3 class="mb-3">Edit Service Job <span class="text-muted fs-5">(@Model.ServiceNumber)</span></h3>
+<div class="mb-4">
+    <div class="page-kicker">VeHI-cle &middot; @Model.ServiceNumber</div>
+    <h3 class="page-heading mb-0">Edit Service Job</h3>
+</div>
 
-<div class="card shadow-sm">
+<div class="card">
     <div class="card-body p-4">
         <form asp-controller="ServiceJob" asp-action="Edit" asp-route-id="@Model.Id" method="post">
             <input type="hidden" asp-for="Id" />
